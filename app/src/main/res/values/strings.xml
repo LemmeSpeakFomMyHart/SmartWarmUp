@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SmartWarmUp</string>
+    <string name="action_settings">Settings</string>
+    <string name="choose_exercise">Выберите упражнение</string>
+    <string name="move_to_next">Переход</string>
+    <string name="squat">Приседания</string>
+    <string name="bench">Жим лёжа</string>
+    <string name="deadlift">Становая тяга</string>
+    <string name="hint_weight">Введите вес</string>
+    <string name="calc">Рассчитать</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

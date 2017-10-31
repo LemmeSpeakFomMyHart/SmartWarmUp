@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_squat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/squat"
+        android:layout_above="@+id/btn_bench"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btn_bench"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bench"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btn_dl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:text="@string/deadlift"
+        android:layout_below="@+id/btn_bench"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:text="@string/choose_exercise"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+
+    <EditText
+        android:id="@+id/et_bench"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_dl"
+        android:layout_toEndOf="@+id/btn_bench"
+        android:layout_toRightOf="@+id/btn_bench"
+        android:ems="10"
+        android:hint="@string/hint_weight"
+        android:inputType="numberDecimal"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/et_squat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_squat"
+        android:layout_toEndOf="@+id/btn_squat"
+        android:layout_toRightOf="@+id/btn_squat"
+        android:ems="10"
+        android:hint="@string/hint_weight"
+        android:inputType="numberDecimal"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/et_dl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_dl"
+        android:layout_toEndOf="@+id/btn_dl"
+        android:layout_toRightOf="@+id/btn_dl"
+        android:ems="10"
+        android:hint="@string/hint_weight"
+        android:inputType="numberDecimal"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btn_calc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp"
+        android:text="@string/calc"
+        android:visibility="gone"/>
+</RelativeLayout>
