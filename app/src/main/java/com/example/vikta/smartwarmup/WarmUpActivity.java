@@ -1,17 +1,25 @@
 package com.example.vikta.smartwarmup;
 
+import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 
 public class WarmUpActivity extends SingleFragmentActivity {
+
+    private SharedPreferences mSharedPreferences;
+    public static Music sSong;
+
+    public static final String APP_PREFERENCES = "MySettings";
+    public static final String  APP_SOUND_OFF="music_off";
 
     @Override
     protected Fragment createFragment() {
@@ -21,39 +29,69 @@ public class WarmUpActivity extends SingleFragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        mSharedPreferences=this.getSharedPreferences(APP_PREFERENCES,MODE_PRIVATE);
+        android.support.v7.preference.PreferenceManager.setDefaultValues(this,
+                R.xml.settings, false);
+        sSong=new Music(getApplicationContext());
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_warm_up, menu);
-        return true;
+    protected void onStop() {
+        super.onStop();
+        Boolean mMusicOff = isSoundMuted();
+        if (!mMusicOff) {
+            sSong.stop();
+        }
+    }
+
+    @NonNull
+    private Boolean isSoundMuted() {
+        mSharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
+        return mSharedPreferences.getBoolean(APP_SOUND_OFF,false);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    protected void onResume() {
+        super.onResume();
+        Boolean mMusicOff = isSoundMuted();
+        if (!mMusicOff){
+            sSong.play();
         }
 
-        return super.onOptionsItemSelected(item);
+        fullScreen();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        sSong.release();
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        fullScreen();
+        getWindow().getDecorView().setOnSystemUiVisibilityChangeListener
+                (new View.OnSystemUiVisibilityChangeListener() {
+                    @Override
+                    public void onSystemUiVisibilityChange(int visibility) {
+                        fullScreen();
+                    }
+                });
+    }
+
+    public void fullScreen() {
+        if(Build.VERSION.SDK_INT > 16 && Build.VERSION.SDK_INT < 19) { // lower api
+            View v = this.getWindow().getDecorView();
+            v.setSystemUiVisibility(View.GONE);
+        } else if(Build.VERSION.SDK_INT >= 19) {
+            //for new api versions.
+            View decorView = getWindow().getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
     }
 }

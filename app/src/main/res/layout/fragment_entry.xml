@@ -5,19 +5,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/entry_pic"
     tools:context="com.example.vikta.smartwarmup.EntryFragment">
 
     <Button
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="243dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginBottom="72dp"
+        android:layout_marginStart="68dp"
+        android:elevation="@dimen/elev_rest_button"
         android:text="@string/move_to_next"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="68dp"/>
+
+    <ImageView
+        android:id="@+id/image_view_info"
+        android:layout_width="65dp"
+        android:layout_height="76dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="1dp"
+        android:src="@drawable/ic_help_black_24dp"
+        android:tint="@android:color/holo_blue_light"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="5dp"/>
+
+    <ImageView
+        android:id="@+id/image_view_settings"
+        android:layout_width="65dp"
+        android:layout_height="76dp"
+        android:src="@drawable/ic_settings_black_24dp"
+        android:tint="@android:color/holo_red_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 

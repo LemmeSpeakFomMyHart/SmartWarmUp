@@ -310,5 +310,8 @@
         <item>1*1</item>
         <item>1*1</item>
     </string-array>
-
+    <string-array name="weight_measure_types">
+        <item>кг</item>
+        <item>lbs</item>
+    </string-array>
 </resources>
