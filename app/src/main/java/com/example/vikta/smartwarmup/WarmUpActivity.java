@@ -19,7 +19,7 @@ public class WarmUpActivity extends SingleFragmentActivity {
     public static Music sSong;
 
     public static final String APP_PREFERENCES = "MySettings";
-    public static final String  APP_SOUND_OFF="music_off";
+    public static final String APP_SOUND_OFF = "music_off";
 
     @Override
     protected Fragment createFragment() {
@@ -29,10 +29,10 @@ public class WarmUpActivity extends SingleFragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mSharedPreferences=this.getSharedPreferences(APP_PREFERENCES,MODE_PRIVATE);
+        mSharedPreferences = this.getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE);
         android.support.v7.preference.PreferenceManager.setDefaultValues(this,
                 R.xml.settings, false);
-        sSong=new Music(getApplicationContext());
+        sSong = new Music(getApplicationContext());
     }
 
     @Override
@@ -46,15 +46,15 @@ public class WarmUpActivity extends SingleFragmentActivity {
 
     @NonNull
     private Boolean isSoundMuted() {
-        mSharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
-        return mSharedPreferences.getBoolean(APP_SOUND_OFF,false);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        return mSharedPreferences.getBoolean(APP_SOUND_OFF, false);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Boolean mMusicOff = isSoundMuted();
-        if (!mMusicOff){
+        if (!mMusicOff) {
             sSong.play();
         }
 
@@ -83,10 +83,10 @@ public class WarmUpActivity extends SingleFragmentActivity {
     }
 
     public void fullScreen() {
-        if(Build.VERSION.SDK_INT > 16 && Build.VERSION.SDK_INT < 19) { // lower api
+        if (Build.VERSION.SDK_INT > 16 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();
             v.setSystemUiVisibility(View.GONE);
-        } else if(Build.VERSION.SDK_INT >= 19) {
+        } else if (Build.VERSION.SDK_INT >= 19) {
             //for new api versions.
             View decorView = getWindow().getDecorView();
             int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |

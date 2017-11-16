@@ -16,26 +16,25 @@ public class EntryFragment extends Fragment {
     private ImageView mSettingsImageView;
     private Button mButtonNextFragment;
 
-    private static final String DIALOG_INFO="DialogInfo";
-
+    private static final String DIALOG_INFO = "DialogInfo";
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.fragment_entry,container,false);
+        View v = inflater.inflate(R.layout.fragment_entry, container, false);
 
-        mButtonNextFragment=(Button) v.findViewById(R.id.btn_next);
+        mButtonNextFragment = (Button) v.findViewById(R.id.btn_next);
         mButtonNextFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm=getFragmentManager();
-                Fragment fragment=new ExercisesFragment();
-                fm.beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer,fragment).commit();
+                FragmentManager fm = getFragmentManager();
+                Fragment fragment = new ExercisesFragment();
+                fm.beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, fragment).commit();
             }
         });
 
-        mInfoImageView=(ImageView) v.findViewById(R.id.image_view_info);
+        mInfoImageView = (ImageView) v.findViewById(R.id.image_view_info);
         mInfoImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,14 +42,14 @@ public class EntryFragment extends Fragment {
             }
         });
 
-        mSettingsImageView=(ImageView) v.findViewById(R.id.image_view_settings);
+        mSettingsImageView = (ImageView) v.findViewById(R.id.image_view_settings);
         mSettingsImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm=getFragmentManager();
-                SettingsFragment fragment=new SettingsFragment();
-                fm.beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer,fragment)
-                            .commit();
+                FragmentManager fm = getFragmentManager();
+                SettingsFragment fragment = new SettingsFragment();
+                fm.beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, fragment)
+                        .commit();
             }
         });
         return v;
@@ -61,9 +60,9 @@ public class EntryFragment extends Fragment {
         super.onResume();
     }
 
-    private void showDialog(){
-        DialogFragment dialog=new InfoDialogFragment();
-        dialog.show(getFragmentManager(),DIALOG_INFO);
+    private void showDialog() {
+        DialogFragment dialog = new InfoDialogFragment();
+        dialog.show(getFragmentManager(), DIALOG_INFO);
     }
 }
     

@@ -42,15 +42,15 @@ public class ExercisesFragment extends Fragment {
     private RelativeLayout mRelativeLayout;
     private SharedPreferences mSharedPreferences;
 
-    public final static String APP_WEIGHT_MEASURE="measure_type";
+    public final static String APP_WEIGHT_MEASURE = "measure_type";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_choose_exercise, container, false);
 
-        mSharedPreferences= PreferenceManager.getDefaultSharedPreferences(getActivity());
-        mMeasure=mSharedPreferences.getString(APP_WEIGHT_MEASURE,"");
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mMeasure = mSharedPreferences.getString(APP_WEIGHT_MEASURE, "");
 
         mRelativeLayout = (RelativeLayout) v.findViewById(R.id.exercise_rel_layout);
         mRelativeLayout.setBackground(getResources().getDrawable(R.drawable.exercises));
@@ -141,22 +141,22 @@ public class ExercisesFragment extends Fragment {
         switch (exercise) {
             case "squat":
                 mMaxWeight = 300;
-                if (mMeasure.equals("lbs")){
-                    mMaxWeight=mMaxWeight*22/10;
+                if (mMeasure.equals("lbs")) {
+                    mMaxWeight = mMaxWeight * 22 / 10;
                 }
                 checkEditText(mEditTextSquat, mMaxWeight);
                 break;
             case "bench":
                 mMaxWeight = 250;
-                if (mMeasure.equals("lbs")){
-                    mMaxWeight=mMaxWeight*22/10;
+                if (mMeasure.equals("lbs")) {
+                    mMaxWeight = mMaxWeight * 22 / 10;
                 }
                 checkEditText(mEditTextBench, mMaxWeight);
                 break;
             case "deadlift":
                 mMaxWeight = 300;
-                if (mMeasure.equals("lbs")){
-                    mMaxWeight=mMaxWeight*22/10;
+                if (mMeasure.equals("lbs")) {
+                    mMaxWeight = mMaxWeight * 22 / 10;
                 }
                 checkEditText(mEditTextDeadlift, mMaxWeight);
                 break;
@@ -168,7 +168,7 @@ public class ExercisesFragment extends Fragment {
         mEditTextInput = editText.getText().toString();
         //проверяем на заполненность edittext и неравенство нулю
         if (mEditTextInput.length() == 0 || mEditTextInput.contentEquals("0")) {
-            Snackbar.make(getView(),"Введите вес в поле!",Snackbar.LENGTH_LONG).show();
+            Snackbar.make(getView(), "Введите вес в поле!", Snackbar.LENGTH_LONG).show();
         } else if (mEditTextInput.length() > 0 && !mEditTextInput.contentEquals("0") &&
                 Integer.parseInt(mEditTextInput) <= maxWeight) {
             mWorkWeight = Integer.parseInt(mEditTextInput);
@@ -176,7 +176,7 @@ public class ExercisesFragment extends Fragment {
                 !mEditTextInput.contentEquals("0") && Integer.parseInt(mEditTextInput) > maxWeight) {
             Snackbar.make(getView(), "Эта программа " +
                     "пока не рассчитана" + " для весов в этом упражнении >" + maxWeight
-                    +" "+ mMeasure+" :)",Snackbar.LENGTH_LONG).show();
+                    + " " + mMeasure + " :)", Snackbar.LENGTH_LONG).show();
         }
     }
 }

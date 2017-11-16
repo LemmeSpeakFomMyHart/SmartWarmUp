@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/app_options">
+
+        <SwitchPreferenceCompat
+            android:key="music_off"
+            android:title="@string/turn_off_music"
+            android:switchTextOff="@string/no"
+            android:switchTextOn="@string/yes"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/weight">
+
+        <ListPreference
+            android:defaultValue="@string/default_measure"
+            android:entries="@array/weight_measure_types"
+            android:entryValues="@array/weight_measure_types"
+            android:key="measure_type"
+            android:persistent="false"
+            android:title="@string/choose_measure_type"/>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -50,8 +50,8 @@ public class ListWeights extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
-        mSharedPreferences= PreferenceManager.getDefaultSharedPreferences(getActivity());
-        mMeasure=mSharedPreferences.getString(APP_WEIGHT_MEASURE,"");
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mMeasure = mSharedPreferences.getString(APP_WEIGHT_MEASURE, "");
 
         mWeightRecyclerView = (RecyclerView) v.findViewById(R.id.weight_recycler_view);
         mWorkWeightTextView = (TextView) v.findViewById(R.id.work_set_text_view);
@@ -91,74 +91,74 @@ public class ListWeights extends Fragment {
     private void updateArrays(String exercise) {
         switch (exercise) {
             case "squat":
-                if ((mMeasure.equals("кг")&&mWorkWeight <= 100)||(mMeasure.equals("lbs")&&mWorkWeight <= 100*2.2)) {
+                if ((mMeasure.equals("кг") && mWorkWeight <= 100) || (mMeasure.equals("lbs") && mWorkWeight <= 100 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.squat_percents_do_100kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.squat_sets_reps_do_100kg);
                 }
-                if ((mMeasure.equals("кг")&&mWorkWeight > 100 && mWorkWeight <= 150)||
-                        (mMeasure.equals("lbs")&&mWorkWeight > 100*2.2 && mWorkWeight <= 150*2.2)) {
+                if ((mMeasure.equals("кг") && mWorkWeight > 100 && mWorkWeight <= 150) ||
+                        (mMeasure.equals("lbs") && mWorkWeight > 100 * 2.2 && mWorkWeight <= 150 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.squat_percents_ot_100kg_do_150kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.squat_sets_reps_ot_100kg_do_150kg);
                 }
-                if ((mMeasure.equals("кг")&&mWorkWeight > 150 && mWorkWeight <= 200)||
-                        (mMeasure.equals("lbs")&&mWorkWeight > 150*2.2 && mWorkWeight <= 200*2.2)){
+                if ((mMeasure.equals("кг") && mWorkWeight > 150 && mWorkWeight <= 200) ||
+                        (mMeasure.equals("lbs") && mWorkWeight > 150 * 2.2 && mWorkWeight <= 200 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.squat_percents_ot_150kg_do_200kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.squat_sets_reps_ot_150kg_do_200kg);
                 }
-                if ((mMeasure.equals("кг")&&mWorkWeight > 200 && mWorkWeight <= 250)||
-                        (mMeasure.equals("lbs")&&mWorkWeight > 200*2.2 && mWorkWeight <= 250*2.2)) {
+                if ((mMeasure.equals("кг") && mWorkWeight > 200 && mWorkWeight <= 250) ||
+                        (mMeasure.equals("lbs") && mWorkWeight > 200 * 2.2 && mWorkWeight <= 250 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.squat_percents_ot_200kg_do_250kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.squat_sets_reps_ot_200kg_do_250kg);
                 }
-                if ((mMeasure.equals("кг")&&mWorkWeight > 250 && mWorkWeight <= 300)||
-                        (mMeasure.equals("lbs")&&mWorkWeight > 250*2.2 && mWorkWeight <= 300*2.2)){
+                if ((mMeasure.equals("кг") && mWorkWeight > 250 && mWorkWeight <= 300) ||
+                        (mMeasure.equals("lbs") && mWorkWeight > 250 * 2.2 && mWorkWeight <= 300 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.squat_percents_ot_250kg_do_300kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.squat_sets_reps_ot_250kg_do_300kg);
                 }
                 break;
             case "bench":
-                if ((mMeasure.equals("кг")&&mWorkWeight <= 100)||(mMeasure.equals("lbs")&&mWorkWeight <= 100*2.2)) {
+                if ((mMeasure.equals("кг") && mWorkWeight <= 100) || (mMeasure.equals("lbs") && mWorkWeight <= 100 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.bench_percents_do_100kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.bench_sets_reps_do_100kg);
                 }
-                if ((mMeasure.equals("кг")&&mWorkWeight > 100 && mWorkWeight <= 150)||
-                        (mMeasure.equals("lbs")&&mWorkWeight > 100*2.2 && mWorkWeight <= 150*2.2)) {
+                if ((mMeasure.equals("кг") && mWorkWeight > 100 && mWorkWeight <= 150) ||
+                        (mMeasure.equals("lbs") && mWorkWeight > 100 * 2.2 && mWorkWeight <= 150 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.bench_percents_ot_100kg_do_150kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.bench_sets_reps_ot_100kg_do_150kg);
                 }
-                if ((mMeasure.equals("кг")&&mWorkWeight > 150 && mWorkWeight <= 200)||
-                        (mMeasure.equals("lbs")&&mWorkWeight > 150*2.2 && mWorkWeight <= 200*2.2)){
+                if ((mMeasure.equals("кг") && mWorkWeight > 150 && mWorkWeight <= 200) ||
+                        (mMeasure.equals("lbs") && mWorkWeight > 150 * 2.2 && mWorkWeight <= 200 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.bench_percents_ot_150kg_do_200kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.bench_sets_reps_ot_150kg_do_200kg);
                 }
-                if ((mMeasure.equals("кг")&&mWorkWeight > 200 && mWorkWeight <= 250)||
-                        (mMeasure.equals("lbs")&&mWorkWeight > 200*2.2 && mWorkWeight <= 250*2.2)) {
+                if ((mMeasure.equals("кг") && mWorkWeight > 200 && mWorkWeight <= 250) ||
+                        (mMeasure.equals("lbs") && mWorkWeight > 200 * 2.2 && mWorkWeight <= 250 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.bench_percents_ot_200kg_do_250kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.bench_sets_reps_ot_200kg_do_250kg);
                 }
                 break;
             case "deadlift":
-                if ((mMeasure.equals("кг")&&mWorkWeight <= 100)||(mMeasure.equals("lbs")&&mWorkWeight <= 100*2.2)) {
+                if ((mMeasure.equals("кг") && mWorkWeight <= 100) || (mMeasure.equals("lbs") && mWorkWeight <= 100 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.deadlift_percents_do_100kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.deadlift_sets_reps_do_100kg);
                 }
-                if ((mMeasure.equals("кг")&&mWorkWeight > 100 && mWorkWeight <= 150)||
-                        (mMeasure.equals("lbs")&&mWorkWeight > 100*2.2 && mWorkWeight <= 150*2.2)) {
+                if ((mMeasure.equals("кг") && mWorkWeight > 100 && mWorkWeight <= 150) ||
+                        (mMeasure.equals("lbs") && mWorkWeight > 100 * 2.2 && mWorkWeight <= 150 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.deadlift_percents_ot_100kg_do_150kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.deadlift_sets_reps_ot_100kg_do_150kg);
                 }
-                if ((mMeasure.equals("кг")&&mWorkWeight > 150 && mWorkWeight <= 200)||
-                        (mMeasure.equals("lbs")&&mWorkWeight > 150*2.2 && mWorkWeight <= 200*2.2)){
+                if ((mMeasure.equals("кг") && mWorkWeight > 150 && mWorkWeight <= 200) ||
+                        (mMeasure.equals("lbs") && mWorkWeight > 150 * 2.2 && mWorkWeight <= 200 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.deadlift_percents_ot_150kg_do_200kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.deadlift_sets_reps_ot_150kg_do_200kg);
                 }
-                if ((mMeasure.equals("кг")&&mWorkWeight > 200 && mWorkWeight <= 250)||
-                        (mMeasure.equals("lbs")&&mWorkWeight > 200*2.2 && mWorkWeight <= 250*2.2)) {
+                if ((mMeasure.equals("кг") && mWorkWeight > 200 && mWorkWeight <= 250) ||
+                        (mMeasure.equals("lbs") && mWorkWeight > 200 * 2.2 && mWorkWeight <= 250 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.deadlift_percents_ot_200kg_do_250kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.deadlift_sets_reps_ot_200kg_do_250kg);
                 }
-                if ((mMeasure.equals("кг")&&mWorkWeight > 250 && mWorkWeight <= 300)||
-                        (mMeasure.equals("lbs")&&mWorkWeight > 250*2.2 && mWorkWeight <= 300*2.2)){
+                if ((mMeasure.equals("кг") && mWorkWeight > 250 && mWorkWeight <= 300) ||
+                        (mMeasure.equals("lbs") && mWorkWeight > 250 * 2.2 && mWorkWeight <= 300 * 2.2)) {
                     mPercentsArray = getActivity().getResources().getIntArray(R.array.deadlift_percents_ot_250kg_do_300kg);
                     mSetsRepsArray = getActivity().getResources().getStringArray(R.array.deadlift_sets_reps_ot_250kg_do_300kg);
                 }
@@ -187,16 +187,16 @@ public class ListWeights extends Fragment {
             mWeightTextView = (TextView) itemView.findViewById(R.id.weight_text_view);
             mSetTextView = (TextView) itemView.findViewById(R.id.set_text_view);
             mNumSetTextView = (TextView) itemView.findViewById(R.id.num_set_text_view);
-            mImageViewDone=(ImageView) itemView.findViewById(R.id.image_view_done);
-            mCardViewItem=(CardView) itemView.findViewById(R.id.card_view_item);
+            mImageViewDone = (ImageView) itemView.findViewById(R.id.image_view_done);
+            mCardViewItem = (CardView) itemView.findViewById(R.id.card_view_item);
         }
 
         @Override
         public void onClick(View v) {
-            if (mImageViewDone.getVisibility()==View.INVISIBLE) {
+            if (mImageViewDone.getVisibility() == View.INVISIBLE) {
                 mImageViewDone.setVisibility(View.VISIBLE);
                 mCardViewItem.setCardBackgroundColor(getResources().getColor(R.color.card_pressed));
-            }else {
+            } else {
                 mImageViewDone.setVisibility(View.INVISIBLE);
                 mCardViewItem.setCardBackgroundColor(getResources().getColor(R.color.white));
             }
