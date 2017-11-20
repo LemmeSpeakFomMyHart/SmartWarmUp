@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/entry_pic"
-    tools:context="com.example.vikta.smartwarmup.EntryFragment">
+    android:background="@drawable/entry"
+    tools:context="com.icantstop.vikta.smartwarmup.EntryFragment">
 
     <Button
         android:id="@+id/btn_next"

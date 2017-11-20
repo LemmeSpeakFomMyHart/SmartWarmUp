@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
+                  xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
         android:title="@string/app_options">
 
@@ -17,7 +18,7 @@
             android:entries="@array/weight_measure_types"
             android:entryValues="@array/weight_measure_types"
             android:key="measure_type"
-            android:persistent="false"
+            android:persistent="true"
             android:title="@string/choose_measure_type"/>
     </PreferenceCategory>
 </PreferenceScreen>

@@ -1,10 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'AppsForFun'
+            keyPassword '28101995a'
+            storeFile file('C:/Users/vikta/Desktop/droid/my_key_store.jks')
+            storePassword '28101995a'
+        }
+    }
     compileSdkVersion 25
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.example.vikta.smartwarmup"
+        applicationId "com.icantstop.vikta.smartwarmup"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
@@ -15,6 +23,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
 }

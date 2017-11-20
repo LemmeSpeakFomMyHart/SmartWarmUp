@@ -57,9 +57,9 @@
         android:ems="10"
         android:hint="@string/hint_weight"
         android:inputType="numberDecimal"
-        android:textColor="@android:color/holo_orange_light"
-        android:textColorHint="@android:color/holo_orange_light"
-        android:textColorLink="@android:color/holo_orange_light"
+        android:textColor="@android:color/holo_red_dark"
+        android:textColorHint="@android:color/holo_red_dark"
+        android:textColorLink="@android:color/holo_red_dark"
         android:visibility="gone"/>
 
     <EditText
@@ -87,8 +87,8 @@
         android:ems="10"
         android:hint="@string/hint_weight"
         android:inputType="numberDecimal"
-        android:textColor="@android:color/holo_red_light"
-        android:textColorHint="@android:color/holo_red_light"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textColorHint="@android:color/holo_orange_dark"
         android:visibility="gone"/>
 
     <Button
